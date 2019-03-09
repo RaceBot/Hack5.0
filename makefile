@@ -3,7 +3,7 @@
 #
 
 CC = gcc
-FLAGS = -Wall -std=gnu99 -g
+FLAGS = -Wall -std=gnu99 -g 
 INCLUDES =
 
 ticTacToe: gameUtils.o playerUtils.o ticTacToeDriver.c

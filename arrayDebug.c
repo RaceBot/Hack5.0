@@ -47,12 +47,12 @@ int *randomArray(int n) {
   for(i=0; i<n; i++) {
     a[i] = random() % 10;
   }
-  return;
+  return &a[1];
 }
 
 double average(const int *a, int n) {
-  int i, sum;
-  for(i=0; i<N; i++) {
+  int i, sum = 0;
+  for(i=0; i< n; i++) {
     sum += a[i];
   }
   return (double) sum / n;

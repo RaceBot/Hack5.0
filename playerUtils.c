@@ -16,7 +16,11 @@ void userMove(Move **board, Move player) {
       printf("Error: that choice was already made.\n");
     } else {
       //we map 1-9 to [0][0] thru [2][2]:
-      board[(input-1)/3][(input-1)] = player;
+      board[(input-1)/3][(input-1) % 3] = player;
+      /**
+       * Fixed 3.
+       * Added %3 to the end of (input - 1)
+       */
       return;
     }
     input = 0;
@@ -44,8 +48,12 @@ void smartComputerMove(Move **board) {
 
   findBestMove(copy, &row, &col);
   board[row][col] = O;
-  freeBoard(copy);
 
+  /**
+   * Fixed 5.
+   * Deleted freeBoard(copy); because it creating a new copy of the board
+   * without the updated board.
+   */
   return;
 }
 
@@ -54,6 +62,7 @@ void findBestMove(Move **board, int *row, int *col) {
   //always assume computer is O,
   //for each open move:
   int best = -1;
+
   for(int i=0; i<3; i++) {
     for(int j=0; j<3; j++) {
       if(board[i][j] == NONE) {
@@ -78,13 +87,13 @@ void findBestMove(Move **board, int *row, int *col) {
 }
 
 int numWinningCombos(Move **board, Move nextMove) {
-
+int i, j;
   int total = 0;
   Status s = getStatus(board);
   if(s == PLAYING) {
 
-    for(int i=0; i<3; i++) {
-      for(int j=0; j<3; j++) {
+    for(i=0; i<3; i++) {
+      for(j=0; j<3; j++) {
         if(board[i][j] == NONE) {
           board[i][j] = nextMove;
           total += numWinningCombos(board, nextMove == X ? O : X);
