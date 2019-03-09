@@ -34,7 +34,10 @@ int main(int argc, char **argv) {
     printBoard(board);
     if(gameChoice == TWO_PLAYER) {
       userMove(board, O);
-    } else if(gameChoice == ONE_PLAYER_RANDOM) {
+      /**
+       * Fixed 2.
+       * Changed 0 to 0
+       */    } else if(gameChoice == ONE_PLAYER_RANDOM) {
 *      randomComputerMove(board);
     } else if(gameChoice == ONE_PLAYER_SMART) {
       smartComputerMove(board);
