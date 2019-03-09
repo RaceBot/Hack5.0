@@ -1,7 +1,7 @@
 /*
-* Authors/Editors : Tristin Gilbert, Khawm Mung
-* Date : March 8 2019
 *
+* Authors/Editors : Tristin Gilbert, Keith Tran, Khawm Mung
+* Date : March 8 2019
 *
 */
 
@@ -63,6 +63,9 @@ void printBoard(Move **board) {
     }
     printf("\n");
     if(i<2) {
+      /**
+       * Changed loop from 3 to 2
+       */
       printf("  ------+-------+------\n");
     }
   }
@@ -92,6 +95,9 @@ Status getStatus(Move **board) {
   Status s = TIE;
 
   if( //rows
+    /**
+     * Matrix was incorrect
+     */
       (board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] == X) ||
       (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] == X) ||
       (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] == X) ||

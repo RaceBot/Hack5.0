@@ -1,7 +1,7 @@
 /*
-* Authors/Editors : Tristin Gilbert, Khawm Mung
-* Date : March 8 2019
 *
+* Authors/Editors : Tristin Gilbert, Keith Tran, Khawm Mung
+* Date : March 8 2019
 *
 */
 
@@ -24,6 +24,9 @@ void userMove(Move **board, Move player) {
     } else {
       //we map 1-9 to [0][0] thru [2][2]:
       board[(input-1)/3][(input-1) % 3] = player;
+      /**
+       * Added %3 to the end of (input - 1)
+       */
       return;
     }
     input = 0;
@@ -51,6 +54,10 @@ void smartComputerMove(Move **board) {
 
   findBestMove(copy, &row, &col);
   board[row][col] = O;
+
+  /**
+   * freeBoard(copy) was creating a copy of the board without updating
+   */
   return;
 }
 
