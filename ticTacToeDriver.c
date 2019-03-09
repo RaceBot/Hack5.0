@@ -1,3 +1,10 @@
+/*
+* Authors/Editors : Tristin Gilbert, Khawm Mung
+* Date : March 8 2019
+*
+*
+*/
+
 #include<stdlib.h>
 #include<stdio.h>
 #include<time.h>
@@ -27,12 +34,8 @@ int main(int argc, char **argv) {
     printBoard(board);
     if(gameChoice == TWO_PLAYER) {
       userMove(board, O);
-      /**
-       * Fixed 2.
-       * Changed 0 to 0
-       */
     } else if(gameChoice == ONE_PLAYER_RANDOM) {
-      randomComputerMove(board);
+*      randomComputerMove(board);
     } else if(gameChoice == ONE_PLAYER_SMART) {
       smartComputerMove(board);
     }

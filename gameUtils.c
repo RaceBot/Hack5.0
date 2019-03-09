@@ -1,3 +1,10 @@
+/*
+* Authors/Editors : Tristin Gilbert, Khawm Mung
+* Date : March 8 2019
+*
+*
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -56,10 +63,6 @@ void printBoard(Move **board) {
     }
     printf("\n");
     if(i<2) {
-      /**
-       * Fixed 6.
-       * Changed the loop to 2 from 3
-       */
       printf("  ------+-------+------\n");
     }
   }
@@ -89,11 +92,6 @@ Status getStatus(Move **board) {
   Status s = TIE;
 
   if( //rows
-    /**
-     * Fixed 4.
-     * The board matrix number were not correct
-     * and I fixed to 0,1 AND 0,2.
-     */
       (board[0][0] == board[0][1] && board[0][1] == board[0][2] && board[0][0] == X) ||
       (board[1][0] == board[1][1] && board[1][1] == board[1][2] && board[1][0] == X) ||
       (board[2][0] == board[2][1] && board[2][1] == board[2][2] && board[2][0] == X) ||
@@ -124,12 +122,6 @@ Status getStatus(Move **board) {
     int i, j;
     for(i=0; i<3; i++) {
       for(j=0; j<3; j++) {
-        /**
-         * Fixed 1.
-         * Originally, the condition for the board was set
-         * equal to O and X, but in the beginning of the code
-         * there is no O and X. Changed it to NONE
-         */
         if(board[i][j] == NONE) {
           s = PLAYING;
         }

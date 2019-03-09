@@ -1,3 +1,10 @@
+/*
+* Authors/Editors : Tristin Gilbert, Khawm Mung
+* Date : March 8 2019
+*
+*
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -17,10 +24,6 @@ void userMove(Move **board, Move player) {
     } else {
       //we map 1-9 to [0][0] thru [2][2]:
       board[(input-1)/3][(input-1) % 3] = player;
-      /**
-       * Fixed 3.
-       * Added %3 to the end of (input - 1)
-       */
       return;
     }
     input = 0;
@@ -48,12 +51,6 @@ void smartComputerMove(Move **board) {
 
   findBestMove(copy, &row, &col);
   board[row][col] = O;
-
-  /**
-   * Fixed 5.
-   * Deleted freeBoard(copy); because it creating a new copy of the board
-   * without the updated board.
-   */
   return;
 }
 
